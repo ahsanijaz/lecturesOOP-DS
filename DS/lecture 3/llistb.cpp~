@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+class Node
+{
+public:
+  int data;
+  Node *next;
+  Node(int a, Node *b)
+  {
+    data=a;
+    next=b;
+  }
+};
+int main()
+{
+  Node *n;
+  n=new Node(10,NULL)  ;
+  cout<<"Data"<<n->data<<endl;
+  n->next=new Node(20,NULL);
+  n=n->next;
+  cout<<"Data"<<n->data<<endl;*/
+  return 0;
+}

@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Data Structures}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Dynamic Data Structures}{3}{0}{1}
+\beamer@sectionintoc {2}{Self referential Classes}{9}{0}{2}

@@ -1,0 +1,321 @@
+\documentclass{beamer}
+\setbeamercovered{transparent}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{subfig}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{cite}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{IEEEtrantools}
+\usepackage{booktabs}
+\usepackage{texpower}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{graphicx}
+\newtheorem{Key points}{Key points}
+\newtheorem{Summary}{Summary}
+\usepackage{dblfloatfix}
+%\usepackage{adjustbox}
+%\usepackage{animate}
+%\usepackage{movie15}
+%\usepackage{subfig}
+%\newtheorem{Definition}{Definition}
+%\usepackage[font={small}]{caption}
+\usepackage{beamerthemeshadow}
+\newcommand\Fontvi{\fontsize{5}{6.2}\selectfont}
+\newcommand\Fontvia{\fontsize{6}{7.2}\selectfont}
+\newcommand\Fontviaa{\fontsize{8}{7.2}\selectfont}
+\usepackage{listings}
+\lstset{language=C++,
+                keywordstyle=\color{blue},
+                stringstyle=\color{red},
+                commentstyle=\color{green},
+                morecomment=[l][\color{magenta}]{\#},
+                numbers=left,
+                escapeinside=||
+}
+
+%\captionsetup{font=scriptsize,labelfont=scriptsize}
+ \usetheme{Antibes}%PaloAlto
+\begin{document}
+\title[Lecture 2]{Data Structures and Object Oriented Programming using C++} 
+\author[]{Ahsan Ijaz}
+\date{}
+ \frame{\titlepage}
+% \AtBeginSection[]
+% {
+% \begin{frame}<beamer>{Table of Contents}
+% \tableofcontents[currentsection,currentsubsection, 
+%     hideothersubsections, 
+%     sectionstyle=show/shaded,
+% ]
+% \end{frame}
+% }
+\section{Review of Last Lecture}
+\frame{\frametitle{Topics Covered}
+  \begin{itemize}
+  \item<1-> Classes
+  \item<2-> Objects
+  \item<3-> Data Hiding
+  \end{itemize}
+}
+\section{}
+\frame{\frametitle{Lecture Details}
+  \begin{itemize}
+  \item Constructors
+  \item Destructors
+  \end{itemize}
+}
+\section{Constructors}
+\frame{\frametitle{Constructors}
+  \begin{itemize}
+  \item Member Function 
+  \item \textbf{Primary use}-Object Initialization
+   \end{itemize}
+}
+
+\begin{frame}[fragile]
+\frametitle{Example Class}
+\Fontvia
+%\begin{small}
+\begin{lstlisting}
+class Distance
+{private:
+	int feet;
+	float inches;
+ public:
+	 void setdistance(int ft, float in)  //Function Used to Initialize Object
+		{feet = ft;
+		 inches = in;}
+	 void getdistance()
+		{cout << "Enter feet : "; 
+		 cin >> feet;
+		 cout << "Enter inches : "; 
+		 cin >> inches;}
+	 void showdistance()
+		{cout << "feet"<< feet << "inches" << inches << endl;}
+};
+int main()
+{	Distance d1, d2;
+ 	d1.setdistance(1,2);
+	d1.showdistance();
+	d2.getdistance();
+	d2.showdistance();
+}
+\end{lstlisting}
+\end{frame}
+
+\frame{\frametitle{Constructors Definition}
+  \begin{itemize}
+  \item<1-> Name Should be same as Class
+  \item<2-> No Return Type
+  \item<3-> Function called at time of Object creation
+  \item<4-> Increases program readability  
+  \end{itemize}
+}
+\begin{frame}[fragile]
+\frametitle{Writing Constructors}
+\begin{itemize}
+\item<1> Counter() {count=0;}
+\item<2-> Counter(): count(0) \{\}; 
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Constructors Example 1}
+\Fontvi
+\begin{lstlisting}
+class Counter
+{
+ private:
+	unsigned int count;
+ public:
+	Counter() {count=0;}    //CONSTRUCTOR DEFINITION
+	void inc_count()
+		{count++;}  // increment counter
+	int get_count()
+		{return count;}  // return counter
+};
+
+int main()
+{
+	Counter c1, c2;
+	
+	 cout << "\n c1 =" << c1.get_count();    // display counter 1
+	 cout << "\n c2 =" << c2.get_count();    // display counter 2 
+
+	 c1.inc_count();    // increment counter 1
+	 c2.inc_count();    // increment counter 2
+	 c2.inc_count();    // increment counter 2
+
+	 cout << "\n c1 =" << c1.get_count();    // display again
+	 cout << "\n c2 =" << c2.get_count() << endl;
+}
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Constructors Example 2}
+\Fontvi
+\begin{lstlisting}
+class Distance
+{private:
+	int feet;
+	float inches;
+ public:
+	 Distance(int ft, float in):feet(ft),inches(in) 
+		{};  //CONSTRUCTOR DEFINITION
+	 void getdistance()
+		{cout << "Enter feet : "; 
+		 cin >> feet;
+		 cout << "Enter inches : "; 
+		 cin >> inches;}
+	 void showdistance()
+		{cout << feet << "\' - " << inches << "\" "<< endl;}
+};
+
+int main()
+{	Distance d1(11,6.25);
+ 	d1.showdistance();
+	d1.getdistance();
+	d1.showdistance();
+}
+\end{lstlisting}
+\end{frame}
+ \frame{\frametitle{Constructor Overloading}
+   \begin{itemize}
+   \item Initialize one of the objects, instantiate another one.
+   \item Use multiple constructors
+   \item Similar as Function Overloading 
+   \end{itemize}
+}
+\begin{frame}[fragile]
+\frametitle{Constructor Overloading Example}
+\Fontviaa
+\begin{lstlisting}
+class Distance
+{private:
+  int feet;
+  float inches;
+public:
+  Distance()   //CONSTRUCTOR 1 
+      {}
+     Distance(int ft, float in): feet(ft),inches (in){}; 
+  …. //CONSTRUCTOR 2
+};
+
+int main()
+{
+ 	Distance dist1, dist3; 
+	Distance dist2(11, 6.25); 
+	 …..
+}	
+\end{lstlisting}
+\end{frame}
+
+\section{Destructor}
+ \frame{\frametitle{Destructor}
+   \begin{itemize}
+   \item<1-> Opposite of Constructors
+   \item<2-> Destructors should be called before object goes out of scope
+   \item<3-> No arguments, no return types
+   \item<4-> De-allocation of memory 
+   \end{itemize}
+}
+\begin{frame}[fragile]
+\frametitle{Destructor Example}
+\Fontviaa
+\begin{lstlisting}
+class Counter
+{private:
+	int *data;
+ public:
+	Counter():count (0) {}
+	~Counter() 
+		{delete data;}
+};
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Copy Constructor}
+\begin{itemize}
+\item Initialize one object from another of the same type.
+\item Created by default
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Complete Example for a Class}
+\Fontvi
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+class Line
+{
+   public:
+      Line( int len );             // simple constructor
+      Line( const Line &obj);  // copy constructor
+      ~Line();                     // destructor
+  private:
+      int *ptr;
+};
+// Member functions definitions including constructor
+Line::Line(int len)
+{
+    cout << "Normal constructor allocating ptr" << endl;
+    // allocate memory for the pointer;
+    ptr = new int;
+    *ptr = len;
+}
+Line::Line(const Line &obj)
+{
+    cout << "Copy constructor allocating ptr." << endl;
+    ptr = new int;
+   *ptr = *obj.ptr; // copy the value
+}
+Line::~Line(void)
+{
+    cout << "Freeing memory!" << endl;
+    delete ptr;
+}
+
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Namespaces}
+\begin{itemize}
+\item Resolves Conflicts while using functions of variables defined at different places but having the same name.
+\end{itemize}
+\Fontvi
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+// first name space
+namespace first_space{
+   void func(){
+      cout << "Inside first_space" << endl;
+   }
+}
+// second name space
+namespace second_space{
+   void func(){
+      cout << "Inside second_space" << endl;
+   }
+}
+int main ()
+{
+ 
+   // Calls function from first name space.
+   first_space::func();
+   
+   // Calls function from second name space.
+   second_space::func(); 
+
+   return 0;
+}
+\end{lstlisting}
+\end{frame}
+\end{document}

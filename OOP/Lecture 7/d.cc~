@@ -1,0 +1,3 @@
+D_class d(10);
+B_class b(20,10);
+B_class c;

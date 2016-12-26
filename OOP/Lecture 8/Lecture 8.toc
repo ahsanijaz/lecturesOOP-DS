@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.21pt}
+\beamer@sectionintoc {1}{Polymorphism}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Pointer to Base Class}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Function Over ride}{10}{0}{1}

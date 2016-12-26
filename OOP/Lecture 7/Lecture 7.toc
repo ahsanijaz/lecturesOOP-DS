@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.21pt}
+\beamer@sectionintoc {1}{Protected Member}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Member Access}{3}{0}{1}
+\beamer@sectionintoc {2}{Constructors in Inheritance}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{Destructor in Inheritance}{24}{0}{2}
+\beamer@sectionintoc {3}{Class Scope and Function Overloading}{27}{0}{3}
+\beamer@sectionintoc {4}{Type of Inheritance}{39}{0}{4}

@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+
+\makeatletter
+\newif\if@restonecol
+\makeatother
+\let\algorithm\relax
+\let\endalgorithm\relax
+\let\copyrightbox\relax
+
+%\usepackage{times}
+\usepackage{multirow, rotating, amsmath, wasysym, mathrsfs}
+\usepackage{subfigure}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{epstopdf}
+\usepackage[retainorgcmds]{IEEEtrantools}
+
+\setlength{\textheight}{22.94cm} % 9in + 0.08cm = 2.5cm margin
+\setlength{\textwidth}{16.59cm}  % 6.5in + 0.08 = 2.5cm margin
+\setlength{\topmargin}{-0.04cm} % for 2.5cm margin
+\setlength{\oddsidemargin}{-0.04cm}   % for 2.5cm margin
+\setlength{\headheight}{0.0in}
+
+\setlength{\headsep}{0.0in} \setlength{\parindent}{1pc}
+\setlength{\parskip}{0pt}
+
+\def\floatpagefraction{.95}
+
+\title{\textbf{Quiz 2}}
+
+\date{}
+
+\begin{document}
+\maketitle
+Create a class named 'Friend' with private data members (age, name,
+height,\cdots,etc). The class should have atleast one private data
+member declared using dynamic memory allocation. Write a constructor
+that can be used to initialize the values of private data
+members. Overload the constructor so that instantiation of an object
+is also possible.
+\end{document}

@@ -1,0 +1,2 @@
+\beamer@endinputifotherversion {3.21pt}
+\beamer@sectionintoc {1}{Friend Function}{2}{0}{1}

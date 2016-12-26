@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.21pt}
+\beamer@sectionintoc {1}{Review of Last Lecture}{2}{0}{1}
+\beamer@sectionintoc {3}{Constructors}{6}{0}{2}
+\beamer@sectionintoc {4}{Destructor}{18}{0}{3}

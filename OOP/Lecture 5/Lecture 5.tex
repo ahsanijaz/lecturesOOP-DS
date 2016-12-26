@@ -1,0 +1,107 @@
+\documentclass{beamer}
+\setbeamercovered{transparent}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{subfig}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{cite}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{IEEEtrantools}
+\usepackage{booktabs}
+\usepackage{texpower}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{graphicx}
+\newtheorem{Key points}{Key points}
+\newtheorem{Summary}{Summary}
+\usepackage{dblfloatfix}
+%\usepackage{adjustbox}
+%\usepackage{animate}
+%\usepackage{movie15}
+%\usepackage{subfig}
+%\newtheorem{Definition}{Definition}
+%\usepackage[font={small}]{caption}
+\usepackage{beamerthemeshadow}
+\newcommand\Fontvi{\fontsize{5}{6.2}\selectfont}
+\newcommand\Fontvia{\fontsize{6}{7.2}\selectfont}
+\newcommand\Fontviaa{\fontsize{8}{7.2}\selectfont}
+\usepackage{listings}
+\lstset{language=C++,
+                keywordstyle=\color{blue},
+                stringstyle=\color{red},
+                commentstyle=\color{green},
+                morecomment=[l][\color{magenta}]{\#},
+                numbers=left,
+                escapeinside=||
+}
+
+%\captionsetup{font=scriptsize,labelfont=scriptsize}
+ \usetheme{Antibes}%PaloAlto
+\begin{document}
+\title[Lecture 5]{Data Structures and Object Oriented Programming using C++} 
+\author[]{Ahsan Ijaz}
+\date{}
+ \frame{\titlepage}
+% \AtBeginSection[]
+% {
+% \begin{frame}<beamer>{Table of Contents}
+% \tableofcontents[currentsection,currentsubsection, 
+%     hideothersubsections, 
+%     sectionstyle=show/shaded,
+% ]
+% \end{frame}
+% }
+
+ \section{Friend Function}
+\frame{\frametitle{Friend Function}
+  \begin{itemize}
+  \item<1-> Friend Function has access to all members of a class.
+\item<2-> Many classes using the same function can be declared as friend to all of them.
+\item<3-> Single Declaration is required.
+  \end{itemize}
+ }
+
+\begin{frame}[fragile]
+\frametitle{Friend Function Example}
+\Fontvi
+\begin{lstlisting}
+#include <iostream>
+using namespace std; 
+class someclass
+{
+private:
+ int a,b;
+public:
+   void test()
+   {
+      a=100;
+      b=200;
+   }
+friend int compute(someclass e1);
+
+//Friend Function Declaration with keyword friend and
+// with the object of class someclass to which it is friend passed to it
+};
+
+int compute(someclass e1)
+{
+ //Friend Function Definition which has access to private data
+ return int(e1.a+e1.b)-5;
+}
+
+void main()
+{
+     someclass e;
+     e.test();
+    cout << "The result is:" << compute(e);
+ //Calling of Friend Function with object as argument.
+}
+\end{lstlisting}
+\end{frame}
+
+\end{document}

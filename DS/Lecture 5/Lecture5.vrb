@@ -1,0 +1,13 @@
+\frametitle{Other uses of Iterators}
+For example, here's the code to iterate through
+all the integers greater than 7 and less than
+23 in a set:
+\begin{lstlisting}
+set<int>::iterator i = s.lower_bound(7);
+set<int>::iterator end = s.upper_bound(23);
+while (i != end) {
+cout << *i << endl;
+++i;
+}
+
+\end{lstlisting}

@@ -1,0 +1,270 @@
+ \documentclass{beamer}
+\setbeamercovered{transparent}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{subfig}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{cite}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{IEEEtrantools}
+\usepackage{booktabs}
+\usepackage{texpower}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{graphicx}
+\newtheorem{Key points}{Key points}
+\newtheorem{Summary}{Summary}
+\usepackage{dblfloatfix}
+%\usepackage{adjustbox}
+%\usepackage{animate}
+%\usepackage{movie15}
+%\usepackage{subfig}
+%\newtheorem{Definition}{Definition}
+%\usepackage[font={small}]{caption}
+\usepackage{beamerthemeshadow}
+\newcommand\Fontvi{\fontsize{5}{6.2}\selectfont}
+\newcommand\Fontvia{\fontsize{6}{7.2}\selectfont}
+\newcommand\Fontviaa{\fontsize{8}{7.2}\selectfont}
+\usepackage{listings}
+\lstset{language=C++,
+                keywordstyle=\color{blue},
+                stringstyle=\color{red},
+                commentstyle=\color{green},
+                morecomment=[l][\color{magenta}]{\#},
+                numbers=left,
+                escapeinside=||
+}
+
+%\captionsetup{font=scriptsize,labelfont=scriptsize}
+ \usetheme{Antibes}%PaloAlto
+\begin{document}
+\title[Lecture 8]{Data Structures and Object Oriented Programming using C++} 
+\author[]{Ahsan Ijaz}
+\date{}
+ \frame{\titlepage}
+% \AtBeginSection[]
+% {
+% \begin{frame}<beamer>{Table of Contents}
+% \tableofcontents[currentsection,currentsubsection, 
+%     hideothersubsections, 
+%     sectionstyle=show/shaded,
+% ]
+% \end{frame}
+% }
+
+\section{Polymorphism}
+\frame{\frametitle{Polymorphism}
+  \begin{itemize}
+  \item Polymorphism is a generic term that means 'many shapes'. In C++ the simplest form of Polymorphism is {\color{blue}overloading} of functions.
+  \item in the OOP form of polymorphism, a virtual function in the base class Point and then overriding it in the derived class Circle.
+  \end{itemize}
+ }
+\subsection{Pointer to Base Class}
+\begin{frame}[fragile]
+\frametitle{Pointer to Base Class}
+  \begin{definition}
+A pointer to a derived class is type-compatible with a pointer to its base class.
+  \end{definition}
+\begin{lstlisting}
+BaseClass BaseObj;
+BaseClass * PBClass = &BaseObj;
+DerivedClass DerivedObj;
+BaseClass * pDclass = &DerivedObj;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pointer to Base Class}
+\Fontviaa
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+class animal
+{
+public:
+void eat();
+void sleep();
+void breathe();   
+};
+
+class fish : public animal
+{
+public:
+void breathe(); //same function as derived class
+}
+
+void animal::breathe(){cout<<"Breathing..."<<endl;}
+void fish::breathe(){cout<<"Bubbling..."<<endl;}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Main Implementation}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.6\textwidth}
+      \centering
+\begin{lstlisting}
+int main()
+{
+animal animal_object;
+fish bigfish;
+animal *pointer; //pointer of kind animal
+
+pointer= &animal_object;
+pointer->breathe();
+/*pointer of kind animal
+ accessing a fish object*/
+pointer= &bigfish; 
+pointer->breathe();
+
+return 0;
+}
+\end{lstlisting}
+\end{column}
+\pause    \begin{column}{0.3\textwidth}
+      \centering
+\textbf{{\color{blue}Output:}} \\Breathing...\\Breathing...\\ 
+    \end{column}
+\end{columns}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Use of Virtual function}
+\Fontviaa
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+class animal
+{
+public:
+void eat();
+void sleep();
+virtual void breathe(); //virtual keyword added
+};
+
+class fish : public animal
+{
+public:
+void breathe();
+}
+
+void animal::breathe(){cout<<"Breathing..."<<endl;}
+void fish::breathe(){cout<<"Bubbling..."<<endl;}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Main Implementation}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.6\textwidth}
+      \centering
+\begin{lstlisting}
+int main()
+{
+animal animal_object;
+fish bigfish;
+animal *pointer;
+
+pointer= &animal_object;
+pointer->breathe();
+
+pointer= &bigfish;
+pointer->breathe(); //Now this calls
+// function of fish class
+
+return 0;
+}
+\end{lstlisting}
+\end{column}
+\pause    \begin{column}{0.3\textwidth}
+      \centering
+\textbf{{\color{blue}Output:}} \\Breathing...\\Bubbling...\\ 
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+\subsection{Function Over ride}
+\frame{\frametitle{Function Over Ride}
+  \begin{definition}
+Changing implementation of a function from base class when the function is called through a derived class object.
+  \end{definition}
+ }
+
+\begin{frame}[fragile]
+\frametitle{Function Over Riding Example}
+\begin{lstlisting}
+class B_class{
+	public:
+		void functionA(){ /*...*/ }
+	};
+class D_class : public B_class{
+	public:
+		void functionA(){ /*...*/ } 
+	};
+int main(){
+	D_class x;
+	x.functionA(); 
+	}
+\end{lstlisting}
+\end{frame}
+\subsection{}
+\begin{frame}[fragile]
+\frametitle{Polymorphism-Base Class}
+In case of pure virtual function, the base class {\color{blue}\textbf{cannot}} be instantiated or created.
+\begin{lstlisting}
+class bird
+{
+public:
+  virtual void fly() = 0; // Pure virtual Function
+};
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Polymorphism-Derived Classes}
+\Fontviaa
+\begin{lstlisting}
+class hummingbird : public bird
+{
+public:
+  virtual void fly()
+  {
+    flap_wings_like_crazy();
+  }
+};
+
+class albatross : public bird
+{
+public:
+  virtual void fly()
+  {
+    glide_majestically_over_the_waves();
+  }
+};
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Polymorphism-Implementation}
+Since \textbf{fly()} is virtual function, \textbf{migrate()} will call the appropriate \textbf{fly()} function.
+\begin{lstlisting}
+void migrate(bird* bird_pointer)
+{
+   bird_pointer->fly();
+}
+int main()
+{
+hummingbird h;
+albatross a;
+
+migrate(&h);  
+migrate(&a);
+}
+\end{lstlisting}
+\end{frame}
+\end{document}

@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.21pt}
+\beamer@sectionintoc {1}{Containers}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Container 1: Stack}{6}{0}{1}
+\beamer@subsectionintoc {1}{2}{Container 2: Vector}{7}{0}{1}
+\beamer@sectionintoc {2}{Container 3: Deque}{13}{0}{2}
+\beamer@sectionintoc {3}{Associative Containers}{19}{0}{3}
+\beamer@subsectionintoc {3}{1}{Container 4: set}{20}{0}{3}
+\beamer@sectionintoc {4}{Iterator}{22}{0}{4}

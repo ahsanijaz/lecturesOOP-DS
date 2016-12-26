@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+
+\makeatletter
+\newif\if@restonecol
+\makeatother
+\let\algorithm\relax
+\let\endalgorithm\relax
+\let\copyrightbox\relax
+
+%\usepackage{times}
+\usepackage{multirow, rotating, amsmath, wasysym, mathrsfs}
+\usepackage{subfigure}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{epstopdf}
+\usepackage[retainorgcmds]{IEEEtrantools}
+
+\setlength{\textheight}{22.94cm} % 9in + 0.08cm = 2.5cm margin
+\setlength{\textwidth}{16.59cm}  % 6.5in + 0.08 = 2.5cm margin
+\setlength{\topmargin}{-0.04cm} % for 2.5cm margin
+\setlength{\oddsidemargin}{-0.04cm}   % for 2.5cm margin
+\setlength{\headheight}{0.0in}
+
+\setlength{\headsep}{0.0in} \setlength{\parindent}{1pc}
+\setlength{\parskip}{0pt}
+
+\def\floatpagefraction{.95}
+
+\title{\textbf{Lab Report 3}\\ Object Oriented Programming\\ and Data Structures }
+
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item Create a class named 'Friend' with private data members (age, name,
+height,$\cdots$,etc).  
+\item  The class should have at least one private data
+member which is declared using dynamic memory allocation, \emph{\textbf{also create a private data member of type int ``rank''.}}
+\item  Write a constructor
+that can be used to initialize the values of private data
+members. 
+\item  Overload the constructor so that instantiation of an object
+is also possible. 
+\item Write a copy constructor as well. 
+\item Write a public member function animate() that displays \emph{``In animate routine''} and request user to enter an animation request from a menu.
+e.g. 1. Run(), 2. Jump(), 3. Eat(),..., or invalid option.
+\item Create Private member functions Run(), Jump(), Eat() that are called from function animate() written as a public function. The functions should simply display something like \emph{``in Run() routine''}. 
+\item Write destructor for the class that deletes the dynamically allocated element while displaying \emph{``In destructor routine of Object \textbf{Name}''}. 
+\item Illustrate usage of this class in the main routine of the program.
+\item \emph{\textbf{Overload operator '++' that increments the 'rank' of the friend, write ++ operator in both postfix and prefix format. Use 'this pointer' while referring to the 'rank' data member in the overload function defintion.}}
+\end{enumerate}
+
+\end{document}

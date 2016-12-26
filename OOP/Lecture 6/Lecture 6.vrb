@@ -1,0 +1,16 @@
+\frametitle{Member access Error}
+\begin{lstlisting}
+class Pen {
+public:
+void SetLocation(int, int);
+void SetStatus(int);
+private:
+int x, y, status;};
+class ColorPen : public Pen {
+public:
+void SetColor(int);
+void setX(int xx){ x = xx; }//Error!
+        private:
+int color;
+};
+\end{lstlisting}

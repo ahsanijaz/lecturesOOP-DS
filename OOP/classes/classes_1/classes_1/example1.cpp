@@ -1,0 +1,35 @@
+// example1.cpp
+// demonstrates a small, simple object
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class shape //define a class
+{
+private:
+	int length; //class data
+public:
+	void setdata(int l) //member function to set data
+	{ 
+		length = l; 
+	}
+	void showdata() //member function to display data
+	{
+		cout << "Data is " << length << endl; 
+	}
+};
+
+int main()
+{int d;
+  string dd="hello";
+	shape line1, line2; //define two objects of class smallobj
+	line1.setdata(1066); //call member function to set data
+	line2.setdata(1776);
+	line1.showdata(); //call member function to display data
+	line2.showdata();
+	cin>>d;
+	cout<<dd;
+    	return 0;
+
+}

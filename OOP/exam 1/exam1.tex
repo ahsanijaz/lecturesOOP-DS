@@ -1,0 +1,229 @@
+\documentclass[12pt,addpoints]{exam}
+\usepackage{listings}  
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+%\usepackage{multicol}
+\usepackage{vwcol}
+%\usepackage[margin={1cm,1cm}]{geometry}
+\lstset{language=C++,numbers=left}
+ \pagestyle{headandfoot}
+%\extraheadheight[.25in]{}
+%\lhead[]{Data Structures \& OOP EC-204 (Continued)}
+\chead[\textbf{\uline{National University of Sciences and Technology}}\\
+\textbf{\uline{College Of E\&ME}}\\
+\textbf{\uline{$1^{st}$ Sessional, Fall 2013}}\\
+\textbf{\uline{DE-34 MTS}}]
+{}
+\rhead[]{Fall, 2013}
+\lfoot{}
+\cfoot{Page \thepage\ of \numpages}
+\rfoot{\iflastpage{End of exam.}{Please go on to the next page\ldots}}
+\begin{document}
+
+\begin{center}
+\begin{vwcol}[widths={0.5,0.5},rule=none,sidesep=5pt]
+\phantom{dss}Subject Code: EC 204\\
+Date: October 22, 2013\\
+Total Marks: 50\\
+Subject: Data Structures \& OOP\\
+Timing: 9:50am-10:50am\\
+Time: 1 hour 
+\end{vwcol}
+\end{center}
+\vspace{0.1in}
+
+\makebox[\textwidth]{Name :\enspace\hrulefill{}~~Section:\enspace\hrulefill}
+
+\vspace{0.2in}
+
+\makebox[\textwidth]{Registration Number:\enspace\hrulefill}
+
+\vspace{0.2in}
+
+Instructor: Ahsan Ijaz\\
+\noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
+\vspace{0.2in}
+\begin{questions}
+\question
+Fill in the following blanks:
+\begin{parts}
+\part[1]
+Constructors are called when objects are \underline{\phantom{something}}.\\
+\part[1]
+Destructors are used to \underline{\phantom{something somee}}.\\
+\part[1]
+Every Object can access its own members using \underline{\phantom{something}} pointer.\\
+\part[2]
+In single inheritance, constructor of \underline{\phantom{something}} class is called before the call of \underline{\phantom{something}} class constructor.  
+%\vspace{0.2in}
+\end{parts}
+\vspace{0.3in} 
+\question
+Indicate as true or false. In case of false, suggest correction:
+\begin{parts}
+\part[1]
+Constructor can be treated as a public member function and can therefore have any return type.\\
+\begin{oneparcheckboxes}
+\choice True
+\choice False
+\end{oneparcheckboxes}\\
+\part[1]
+In Public inheritance, protected members can be accessed in derived class.\\
+\begin{oneparcheckboxes}
+\choice True
+\choice False
+\end{oneparcheckboxes}\\
+\part[1]
+Two global functions, with the same name, same arguments and same return type can be called in main by defining them in different places.\\
+\begin{oneparcheckboxes}
+\choice True
+\choice False
+\end{oneparcheckboxes}\\
+\part[1]
+Friend functions cannot access protected members.\\
+\begin{oneparcheckboxes}
+\choice True
+\choice False
+\end{oneparcheckboxes}\\
+\part[1]
+Destructors need to be explicitly called before going out of scope.\\
+\begin{oneparcheckboxes}
+\choice True
+\choice False
+\end{oneparcheckboxes}\\
+\end{parts}
+\vspace{0.2in} 
+\newpage
+\question[15]
+In the table below, cross out the wrongly placed ``yes''. As an example, private members in public inheritance cannot be accessed in derived class and is hence crossed out in the table.
+\vspace{\fill}
+%\vspace{\stretch{1}}
+\begin{table}[htpb] \centering
+ \begin{tabular}{lcccc} \toprule
+ Accessibility from  & Inheritance Type & Public  & Protected & Private\\\midrule 
+\multirow{3}{*}{Derived Class} & Public & Yes & Yes & \textbf{\st{Yes}}\\
+& Private & Yes & Yes & Yes\\
+& Protected & Yes & Yes & Yes\\
+\midrule 
+% \multirow{3}{*}{Class Derived from derived class} & Public & Yes & Yes & Yes\\
+% & Private & Yes & Yes & Yes\\
+% & Protected & Yes & Yes & Yes\\
+% \midrule 
+\multirow{3}{*}{Main Function} & Public & Yes & Yes & Yes\\
+& Private & Yes & Yes & Yes\\
+& Protected & Yes & Yes & Yes\\
+ \bottomrule
+ \end{tabular}
+ \caption{Member access in Inheritance}
+ \end{table}
+\vspace{\fill}
+\question
+Refer to the following code snippet for answering the following question parts:
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+class Furniture
+{
+   public:
+      Furniture( int len );
+      Furniture( const Furniture &obj);
+      Furniture();
+      ~Furniture();               
+  private:
+      int *ptr;
+};
+
+Furniture::Furniture(int len)
+{
+    ptr=new int;
+    *ptr = len;
+}
+
+Furniture::Furniture()
+{
+}
+
+Furniture::Furniture(const Furniture &obj)
+{
+    ptr = new int;
+   *ptr = *obj.ptr; 
+}
+Furniture::~Furniture(void)
+{
+    delete ptr;
+}
+\end{lstlisting}
+\begin{parts}
+\part[3] Identify constructor, copy constructor, constructor overloading, destructor and member access specifiers from the given code snippet (just write line number,~e.g.~Class Definition: Line\#~3)
+\vspace{0.1in}
+%\fillwithlines{2in}
+\part[5]
+Error would occur in case of object instantiation~(e.g.~Furniture bed;) using the above code, identify the source and type of error.
+\vspace{0.1in}
+%\fillwithlines{2in}
+%\newpage
+\part[2] What is the advantage of using \textbf{\&} operator in the copy constructor. Talk in terms of memory allocation.
+\vspace{0.1in}
+%\fillwithlines{1.5in}
+\end{parts}
+
+%  \question
+% Short Questions:
+% \begin{parts}
+%  \part[5]
+% Write down the two methods of writing a constructor of the following class:
+%  \begin{lstlisting}
+% class Animal
+% {
+% public:
+% int legs;
+% }
+%  \end{lstlisting}
+% \fillwithlines{\stretch{1}}
+%  \part[5]
+% Explain the use of scope resolution operator and it's usage in namespaces.~(Just explanation required, no need for writing a code.)
+%  \vspace{\stretch{1}}
+
+
+% \end{parts}
+% Please answer briefly to the following questions, use the space provided:
+% \begin{parts}
+% \part[5]
+% Describe the effect on the balloon industry.
+% \vspace{\stretch{1}}
+% \part[5]
+% Describe the effect on the aircraft industry.
+% \vspace{\stretch{1}}
+% \end{parts}
+% \question[20]
+% \begin{parts}
+% \part
+% Define the universe. Give three examples.
+% \fillwithlines{\stretch{1}}
+% \part
+% If the universe were to end, how would you know?
+% \end{parts}
+\question
+Write a code that:
+\begin{parts}
+\part[2] Has a class named \textbf{CoolingDevices} with public members as \textbf{Type} and  \textbf{price}.
+\part[3] Has a class inherited from \textbf{CoolingDevices} named \textbf{AirConditioner} with public members \textbf{price}, \textbf{PowerConsumption}, \textbf{CoolingCapacity} and a private member \textbf{thermostat}.
+\part[5] Overload operator \textbf{``+''} so that by adding two objects of type \textbf{AirConditioner}, there public members \textbf{PowerConsumption} and \textbf{CoolingCapacity} are added together.
+%\part Overload operator \textbf{``++''} of the derived class so that the private member \textbf{Thermostat} is incremented when the operator is called.
+\part[5] Both the classes have the same member \textbf{price}. Briefly discuss scope of the variable price and how either one of it can be accessed in the derived class.
+\vspace{0.1in}
+%\fillwithlines{\stretch{1}}
+\end{parts}
+\end{questions}
+\begin{center}
+This exam has \numquestions\ questions, for a total of \numpoints\
+points.
+\end{center}
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+%\vspace{0.5in}
+%\vspace*{\fill}
+\end{document}

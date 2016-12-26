@@ -1,0 +1,10 @@
+\frametitle{Stack Implementation using linked list}
+\begin{lstlisting}
+void pushback(int value);
+Node* popback();
+\end{lstlisting}
+    \begin{figure}
+    \centering
+         \includegraphics[width=0.51\columnwidth]{stack.png}
+    \caption{Stack Implementation}
+  \end{figure}

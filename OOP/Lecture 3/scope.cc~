@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+/* global variable declaration */
+int a = 20;
+int sum(int,int);
+int main ()
+{
+  int *ptrg;
+  ptrg=&a;
+  cout<<"value of a here is "<<a<<endl;
+  /* local variable declaration in main function */
+  int a = 10;
+  int b = 20;
+  int c = 0;
+  int *ptrl=&a;
+  cout<<"pointer stores "<<ptrg<<endl;
+  cout<<"value of a in main()= "<<a<<endl;
+  cout<<"value of a using pointer = "<<*ptrg<<endl;
+  cout<<" pointer local = "<<ptrl<<endl;
+  c = sum( a, b);
+  cout<<"value of c in main()= "<<c<<endl;
+
+  return 0;
+}
+/* function to add two integers */
+int sum(int a, int b)
+{  {
+     int a=30;
+     cout<<"value of a here is= "<<a<<endl;
+     }
+  cout<<"value of a in main()= "<<a<<endl;
+     return a + b;
+   
+}

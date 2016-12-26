@@ -1,0 +1,11 @@
+\frametitle{Usage of Class}
+\begin{lstlisting}
+Item<int> item1;
+item1.SetData(120);
+item1.PrintData();
+\end{lstlisting}
+Or you can cause the compiler to generate a float type data member like this:
+\begin{lstlisting}
+Item<float> item2;
+float n = item2.GetData();
+\end{lstlisting}

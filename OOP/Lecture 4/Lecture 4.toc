@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.21pt}
+\beamer@sectionintoc {1}{Review of Last Lecture}{2}{0}{1}
+\beamer@sectionintoc {2}{Quiz\#1 Hall of Fame}{8}{0}{2}
+\beamer@sectionintoc {3}{Operator Overloading}{11}{0}{3}
+\beamer@sectionintoc {4}{This Pointer}{17}{0}{4}

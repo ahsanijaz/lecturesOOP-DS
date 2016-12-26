@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.21pt}
+\beamer@sectionintoc {1}{Course Details}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Quiz 0}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Quiz 0 Discussion}{4}{0}{1}
+\beamer@sectionintoc {2}{Thinking Objects}{12}{0}{2}
+\beamer@subsectionintoc {2}{1}{Class Exercise 1}{13}{0}{2}
+\beamer@sectionintoc {3}{Thinking Classes}{15}{0}{3}

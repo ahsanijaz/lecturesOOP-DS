@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.21pt}
+\beamer@sectionintoc {1}{Linked List}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Delete Node}{6}{0}{1}
+\beamer@subsectionintoc {1}{2}{Insert Node}{9}{0}{1}
+\beamer@subsectionintoc {1}{3}{Adding Node at end (pushback)}{12}{0}{1}
+\beamer@subsectionintoc {1}{5}{Customized Linked Lists}{14}{0}{1}

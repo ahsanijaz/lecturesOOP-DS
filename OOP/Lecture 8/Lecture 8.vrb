@@ -1,0 +1,16 @@
+\frametitle{Polymorphism-Implementation}
+Since \textbf{fly()} is virtual function, \textbf{migrate()} will call the appropriate \textbf{fly()} function.
+\begin{lstlisting}
+void migrate(bird* bird_pointer)
+{
+   bird_pointer->fly();
+}
+int main()
+{
+hummingbird h;
+albatross a;
+
+migrate(&h);
+migrate(&a);
+}
+\end{lstlisting}

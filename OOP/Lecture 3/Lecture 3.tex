@@ -1,0 +1,559 @@
+\documentclass{beamer}
+\setbeamercovered{transparent}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{subfig}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{cite}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{IEEEtrantools}
+\usepackage{booktabs}
+\usepackage{texpower}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{graphicx}
+\newtheorem{Key points}{Key points}
+\newtheorem{Summary}{Summary}
+\usepackage{dblfloatfix}
+%\usepackage{adjustbox}
+%\usepackage{animate}
+%\usepackage{movie15}
+%\usepackage{subfig}
+%\newtheorem{Definition}{Definition}
+%\usepackage[font={small}]{caption}
+\usepackage{beamerthemeshadow}
+\newcommand\Fontvi{\fontsize{5}{6.2}\selectfont}
+\newcommand\Fontvia{\fontsize{6}{7.2}\selectfont}
+\newcommand\Fontviaa{\fontsize{8}{7.2}\selectfont}
+\usepackage{listings}
+\lstset{language=C++,
+                keywordstyle=\color{blue},
+                stringstyle=\color{red},
+                commentstyle=\color{green},
+                morecomment=[l][\color{magenta}]{\#},
+                numbers=left,
+                escapeinside=||
+}
+
+%\captionsetup{font=scriptsize,labelfont=scriptsize}
+ \usetheme{Antibes}%PaloAlto
+\begin{document}
+\title[Lecture 3]{Data Structures and Object Oriented Programming using C++} 
+\author[]{Ahsan Ijaz}
+\date{September 16, 2013}
+ \frame{\titlepage}
+% \AtBeginSection[]
+% {
+% \begin{frame}<beamer>{Table of Contents}
+% \tableofcontents[currentsection,currentsubsection, 
+%     hideothersubsections, 
+%     sectionstyle=show/shaded,
+% ]
+% \end{frame}
+% }
+\section{Review of C++}
+\frame{\frametitle{Topics Covered}
+  \begin{itemize}
+  \item<1-> Basic Data Types
+  \item<2-> Variables, Constants 
+  \item<3-> Functions, Function Overloading
+  \item<4-> Pointers
+  \item<5-> Arrays
+  \item<6-> Dynamic Memory Allocation
+  \end{itemize}
+}
+
+\begin{frame}[fragile]
+\frametitle{Basic Program}
+%\Fontvia
+%\begin{small}
+\begin{lstlisting}
+
+#include <iostream>
+using namespace std;
+/*Loads of Comments*/
+int main ()
+{
+  cout << "Hello World!"; // But of course! 
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\subsection{Data Types}
+\frame{\frametitle{Data Types}
+\begin{table}[h]%[hbt]
+  \centering
+  \begin{tabular}{llc}\toprule
+    Name & Description & Size~(byte)\\ \midrule
+    char & Character & 1 \\
+    short int~(short) & Short integer & 2\\
+    int & Integer  & 4\\
+    long int~(long) & Long integer & 4 \\
+    bool & Boolean value (1 or 0) & 1\\
+    float & Floating point variable & 4\\
+    double & Double precision floating point & 8 \\  \bottomrule
+  \end{tabular}
+ \caption{Data Types}
+\end{table}
+}
+\begin{frame}[fragile]
+\frametitle{Variables Example}
+\Fontviaa
+%\begin{small}
+\begin{lstlisting}
+// operating with variables
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+  // declaring variables:
+  int a
+  float b;
+  int result;
+
+  // process:
+  a = 5;
+  b = 2.3;
+  result = a + b;
+
+  // print out the result:
+  cout << result;
+
+  // terminate the program:
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\subsection{Control Sequences}
+\begin{frame}[fragile]
+\frametitle{if else sequence}
+%\Fontviaa
+%\begin{small}
+\begin{lstlisting}
+if (x == 100)
+{
+   cout << "x is ";
+   cout << x;
+}
+else if (x < 0)
+  cout << "x is negative";
+else
+  cout << "x is 0";
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{While loop}
+%\Fontviaa
+%\begin{small}
+\begin{lstlisting}
+// custom countdown using while
+#include <iostream>
+using namespace std;
+int main ()
+{
+  int n;
+  cout << "Enter the starting number > ";
+  cin >> n;
+  while (n>0) {
+    cout << n << ", ";
+    --n;
+  }
+  cout << "FIRE!\n";
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{for loop}
+%\Fontviaa
+%\begin{small}
+\begin{lstlisting}
+
+for ( n=0, i=100 ; n!=i ; n++, i-- )
+{
+   // whatever here...
+}
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{break statement}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.6\textwidth}
+      \centering
+\Fontviaa
+%\begin{small}
+\begin{lstlisting}
+// break loop example
+#include <iostream>
+using namespace std;
+int main ()
+{
+  int n;
+  for (n=10; n>0; n--)
+  {
+    cout << n << ", ";
+    if (n==3)
+    {
+      cout << "countdown aborted!";
+      break;
+    }
+  }
+  return 0;
+}
+\end{lstlisting}
+    \end{column}
+\pause    \begin{column}{0.3\textwidth}
+      \centering
+\textbf{{\color{blue}Output:}} 10, 9, 8, 7, 6, 5, 4, 3, countdown aborted!
+    \end{column}
+\end{columns}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{continue statement}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.6\textwidth}
+      \centering
+\Fontviaa
+%\begin{small}
+\begin{lstlisting}
+// continue loop example
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+  for (int n=10; n>0; n--) {
+    if (n==5) continue;
+    cout << n;
+  }
+  cout << "FIRE!\n";
+  return 0;
+}
+\end{lstlisting}
+    \end{column}
+\pause    \begin{column}{0.4\textwidth}
+      \centering
+\textbf{{\color{blue}Output:}} 10, 9, 8, 7, 6, 4, 3, 2, 1, FIRE!
+    \end{column}
+\end{columns}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Switch-case}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.5\textwidth}
+      \centering
+\Fontviaa
+%\begin{small}
+\begin{lstlisting}
+switch (x) {
+  case 1:
+    cout << "x is 1";
+    break;
+  case 2:
+    cout << "x is 2";
+    break;
+  default:
+    cout << "value of x unknown";
+  }
+\end{lstlisting}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+\Fontviaa
+\begin{lstlisting}
+if (x == 1) {
+  cout << "x is 1";
+  }
+else if (x == 2) {
+  cout << "x is 2";
+  }
+else {
+  cout << "value of x unknown";
+  }
+\end{lstlisting}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Functions}
+\begin{frame}[fragile]
+\frametitle{Function and Scope of Variables}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.6\textwidth}
+      \centering
+\Fontvia
+%\begin{small}
+\begin{lstlisting}
+#include <stdio.h>
+/* global variable declaration */
+int a = 20;
+ 
+int main ()
+{
+  /* local variable declaration in main function */
+  int a = 10;
+  int b = 20;
+  int c = 0;
+  printf ("value of a in main() = %d\n",  a);
+  c = sum( a, b);
+  printf ("value of c in main() = %d\n",  c);
+
+  return 0;
+}
+/* function to add two integers */
+int sum(int a, int b)
+{
+    printf ("value of a in sum() = %d\n",  a);
+    printf ("value of b in sum() = %d\n",  b);
+     { 
+     int a = 50;
+   printf ("value of a in block = %d\n",  a);
+     }
+    return a + b;
+}
+\end{lstlisting}
+    \end{column}
+\pause    \begin{column}{0.4\textwidth}
+      \centering
+\textbf{{\color{blue}Output:}}\\ value of a in main() = 10\\
+value of a in sum() = 10\\
+value of b in sum() = 20\\
+value of a in block = 50\\
+value of c in main() = 30 
+    \end{column}
+\end{columns}
+\end{frame}
+\subsection{Functions}
+\begin{frame}[fragile]
+
+\frametitle{Overloaded Functions}
+\Fontvia
+%\begin{small}
+\begin{lstlisting}
+// overloaded function
+#include <iostream>
+using namespace std;
+int operate (int a, int b)
+{
+  return (a*b);
+}
+float operate (float a, float b)
+{
+  return (a/b);
+}
+
+int main ()
+{
+  int x=5,y=2;
+  float n=5.0,m=2.0;
+  cout << operate (x,y);
+  cout << "\n";
+  cout << operate (n,m);
+  cout << "\n";
+  return 0;
+}
+\end{lstlisting}
+\textbf{{\color{blue}Output:}}\\10\\2.5
+
+\end{frame}
+
+\subsection{Pointers}
+\begin{frame}[fragile]
+\frametitle{Basic Example}
+\Fontviaa
+\begin{lstlisting}
+// my first pointer
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+  int firstvalue, secondvalue;
+  int * mypointer;
+
+  mypointer = &firstvalue;
+  *mypointer = 10;
+  mypointer = &secondvalue;
+  *mypointer = 20;
+  cout << "firstvalue is " << firstvalue << endl;
+  cout << "secondvalue is " << secondvalue << endl;
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Pointers Example 2}
+\Fontvia
+\begin{lstlisting}
+// more pointers
+#include <iostream>
+using namespace std;
+int main ()
+{
+  int firstvalue = 5, secondvalue = 15;
+  int * p1, * p2;
+  cout << "firstvalue is " << firstvalue << endl;
+  cout << "secondvalue is " << secondvalue << endl;
+  p1 = &firstvalue;  // p1 = address of firstvalue
+  p2 = &secondvalue; // p2 = address of secondvalue
+  *p1 = 10;          // value pointed by p1 = 10
+  *p2 = *p1;         // value pointed by p2 = value pointed by p1
+  cout << "firstvalue is " << firstvalue << endl;
+  cout << "secondvalue is " << secondvalue << endl;
+  p1 = p2;           // p1 = p2 (value of pointer is copied)
+  *p1 = 20;          // value pointed by p1 = 20
+  cout << "firstvalue is " << firstvalue << endl;
+  cout << "secondvalue is " << secondvalue << endl;
+  return 0;
+}
+\end{lstlisting}
+\textbf{{\color{blue}Output:}}
+firstvalue is 5\\
+secondvalue is 15\\
+firstvalue is 10\\
+secondvalue is 10\\
+firstvalue is 10\\
+secondvalue is 20\\
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Pointers and Arrays}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.6\textwidth}
+      \centering
+\Fontvia
+%\begin{small}
+\begin{lstlisting}
+// more pointers
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+  int numbers[5];
+  int * p;
+  p = numbers;  *p = 10;
+  p++;  *p = 20;
+  p = &numbers[2];  *p = 30;
+  p = numbers + 3;  *p = 40;
+  p = numbers;  *(p+4) = 50;
+  for (int n=0; n<5; n++)
+    cout << numbers[n] << ", ";
+  return 0;
+}
+\end{lstlisting}
+    \end{column}
+\pause    \begin{column}{0.3\textwidth}
+      \centering
+\textbf{{\color{blue}Output:}} 10, 20, 30, 40, 50
+    \end{column}
+\end{columns}
+\Fontviaa
+\begin{definition}
+\centering
+array := \&array[0]
+\end{definition}
+\begin{lstlisting}
+a[5] = 0;       // a [offset of 5] = 0
+*(a+5) = 0;     // pointed by (a+5) = 0
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Pointer to functions}
+\Fontvia
+%\begin{small}
+\begin{lstlisting}
+// pointer to functions
+#include <iostream>
+using namespace std;
+
+int addition (int a, int b)
+{ return (a+b); }
+
+int subtraction (int a, int b)
+{ return (a-b); }
+
+int operation (int x, int y, int (*functocall)(int,int))
+{
+  int g;
+  g = (*functocall)(x,y);
+  return (g);
+}
+
+int main ()
+{
+  int m,n;
+  int (*minus)(int,int) = subtraction;
+
+  m = operation (7, 5, addition);
+  n = operation (20, m, minus);
+  cout <<n;
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Returning multiple values from functions}
+\Fontviaa
+%\begin{small}
+\begin{lstlisting}
+// more than one returning value
+#include <iostream>
+using namespace std;
+
+void prevnext (int x, int& prev, int& next)
+{
+  prev = x-1;
+  next = x+1;
+}
+int main ()
+{
+  int x=100, y, z;
+  prevnext (x, y, z);
+  cout << "Previous=" << y << ", Next=" << z;
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Dynamic Memory Allocation}
+\Fontvia
+%\begin{small}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main ()
+{
+  int i,n;
+  int * p;
+  cout << "How many numbers would you like to type? ";
+  cin >> i;
+  p= new int[i];
+  if (p == 0)
+    cout << "Error: memory could not be allocated";
+  else
+  {
+    for (n=0; n<i; n++)
+    {
+      cout << "Enter number: ";
+      cin >> p[n];
+    }
+    cout << "You have entered: ";
+    for (n=0; n<i; n++)
+      cout << p[n] << ", ";
+    delete[] p;
+  }
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,12 @@
+\frametitle{Element type Dependency}
+  \begin{itemize}
+  \item We can use a relational operator to compare two containers only if the
+appropriate comparison operator is defined for the element type.
+  \end{itemize}
+
+\begin{lstlisting}
+vector<Sales_data> storeA, storeB;
+if (storeA < storeB) // error: Sales_data has
+                    // no less-than operator
+
+\end{lstlisting}
